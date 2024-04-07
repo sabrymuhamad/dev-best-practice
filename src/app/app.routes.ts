@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    { path: 'stepper', loadComponent: () => import('./stepper/stepper.component').then(c => c.StepperComponent) }
+    { path: 'embedded', loadComponent: () => import('./pages/embedded-views/embedded-views.component').then(c => c.EmbeddedViewsComponent) }
 ];
+// embedded

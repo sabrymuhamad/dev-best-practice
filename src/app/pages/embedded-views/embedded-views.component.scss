@@ -1,0 +1,35 @@
+.step-link {
+    @apply mj-h-[1px] mj-bg-neutral-300 mj-w-full;
+}
+
+.step {
+    .bullet {
+        @apply mj-mb-4 flex-center mj-justify-center mj-bg-success-100 mj-w-[32px] mj-h-[32px] mj-rounded-full;
+
+        mat-icon {
+            @apply mj-text-white;
+        }
+
+        .active {
+            @apply mj-bg-success-400 mj-w-[12px] mj-h-[12px] mj-rounded-full;
+        }
+    }
+
+    .number {
+        @apply mj-text-neutral-600 mj-tracking-widest;
+    }
+
+    &>.active {
+        @apply mj-text-primary-500;
+    }
+
+    &.pending {
+        @apply mj-opacity-60;
+    }
+
+    &.completed {
+        .bullet {
+            @apply mj-bg-success-600;
+        }
+    }
+}

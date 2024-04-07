@@ -1,0 +1,21 @@
+<app-stepper [stepperHeader]="stepperHeaderRef"></app-stepper>
+<ng-template #stepperHeaderRef>
+    <ng-container *ngFor="let step of steps;let i = index;let last = last">
+        <div class="step" [ngClass]="{'active':activeIndex === i, 'completed':activeIndex > i, 'pending':activeIndex < i}">
+            <div class="bullet">
+                <mat-icon *ngIf="activeIndex > i">check</mat-icon>
+                <div [ngClass]="{'active':activeIndex === i}"></div>
+            </div>
+            <div class="number"><span class="mj-uppercase">{{'stepper.step' | translate}}</span> {{i+1}}</div>
+            <div class="mj-font-semibold mj-w-max">{{step.stepTitle | translate}}</div>
+            <div class="mj-w-max" [ngClass]="{'active':activeIndex === i}">
+                {{activeIndex === i ? ('stepper.inProgress' | translate) : 
+                activeIndex < i ? ('stepper.pending' | translate) : 
+                ('stepper.completed' | translate)
+                }}
+
+            </div>
+        </div>
+        <div *ngIf="!last" class="step-link"></div>
+    </ng-container>
+</ng-template>
