@@ -6,12 +6,12 @@
                 <mat-icon *ngIf="activeIndex > i">check</mat-icon>
                 <div [ngClass]="{'active':activeIndex === i}"></div>
             </div>
-            <div class="number"><span class="mj-uppercase">{{'stepper.step' | translate}}</span> {{i+1}}</div>
-            <div class="mj-font-semibold mj-w-max">{{step.stepTitle | translate}}</div>
+            <div class="number"><span class="mj-uppercase">Step</span> {{i+1}}</div>
+            <div class="mj-font-semibold mj-w-max">{{step.stepTitle}}</div>
             <div class="mj-w-max" [ngClass]="{'active':activeIndex === i}">
-                {{activeIndex === i ? ('stepper.inProgress' | translate) : 
-                activeIndex < i ? ('stepper.pending' | translate) : 
-                ('stepper.completed' | translate)
+                {{activeIndex === i ? 'In Progress' : 
+                activeIndex < i ? 'Pending' : 
+                'Completed'
                 }}
 
             </div>
