@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, TemplateRef } from '@angular/core';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatButtonModule} from '@angular/material/button';
+import { Component, Input, TemplateRef, input, output } from '@angular/core';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -12,5 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './stepper.component.scss'
 })
 export class StepperComponent {
-  @Input() stepperHeader!: TemplateRef<any>;
+  stepperHeader = input.required<TemplateRef<any>>();
+  @Input() selectedIndex = 0;
+  selectedIndexChange = output<number>();
+
 }

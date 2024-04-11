@@ -17,8 +17,8 @@ export interface IStepperHeader {
 })
 export class EmbeddedViewsComponent {
   steps = [
-    {stepTitle:'Step 1 title', isActive:false},
-    {stepTitle:'Step 2 title', isActive:true}
+    {stepTitle:'Step title', isActive:false},
+    {stepTitle:'Step title', isActive:true}
   ];
   activeIndex = 0;
 }
