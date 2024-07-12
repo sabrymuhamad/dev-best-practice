@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './stepper.component.scss'
 })
 export class StepperComponent {
-  stepperHeader = input.required<TemplateRef<any>>();
+  stepperHeader = input<TemplateRef<any>>();
   selectedIndex = model(0);
 
 }
