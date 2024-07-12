@@ -132,4 +132,4 @@ than using `NgTemplateOutlet` directive "declarative"...
         }
     }
 ```
-    
+* here in the parent component I provide number of steps for the header to show and actually I could also provide the steps content to show in our re-usable component 
