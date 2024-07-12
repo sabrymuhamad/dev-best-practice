@@ -1,9 +1,12 @@
 <div class="hide-stepper-header tw-mt-10 tw-w-1/2 tw-mx-auto">
-    <div class="tw-flex tw-mb-4"><ng-container [ngTemplateOutlet]="stepperHeader()"></ng-container></div>
+    <div class="tw-flex tw-mb-4">
+        <ng-container [ngTemplateOutlet]="stepperHeader()"></ng-container>
+    </div>
 
-    <mat-stepper #stepper [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectedIndexChange.emit($event)">
+    <mat-stepper #stepper [(selectedIndex)]="selectedIndex">
         <mat-step>
             <ng-template matStepLabel>Fill out your name</ng-template>
+            <p>Step 1 body</p>
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>

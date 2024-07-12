@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, TemplateRef, input, output } from '@angular/core';
+import { Component, TemplateRef, input, model } from '@angular/core';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class StepperComponent {
   stepperHeader = input.required<TemplateRef<any>>();
-  @Input() selectedIndex = 0;
-  selectedIndexChange = output<number>();
+  selectedIndex = model(0);
 
 }
