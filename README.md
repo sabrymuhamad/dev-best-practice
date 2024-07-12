@@ -40,8 +40,8 @@ than using `NgTemplateOutlet` directive "declarative"...
 
 ##
 
-- and now to our first example:
+### and now to our first example:
     * since NgTemplateOutlet is a directive and by the way it could be used as structural and attribute directive so I need to change the view of a child component based on 
     a condition or either some kind of data if exists, for this example I'm using Angular 18 and angular materials 18
-    
+
     
