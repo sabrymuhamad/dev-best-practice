@@ -1,5 +1,5 @@
 .step-link {
-    @apply tw-h-[1px] tw-bg-neutral-300 tw-w-full;
+    @apply tw-h-[1px] tw-bg-neutral-300 tw-w-full tw-mt-4;
 }
 
 .step {
@@ -16,7 +16,7 @@
     }
 
     .number {
-        @apply tw-text-neutral-600 tw-tracking-widest;
+        @apply tw-text-neutral-600 tw-tracking-widest tw-w-32;
     }
 
     &>.active {

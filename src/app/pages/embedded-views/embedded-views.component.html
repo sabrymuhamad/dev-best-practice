@@ -8,8 +8,7 @@
                 <mat-icon *ngIf="activeIndex > i">check</mat-icon>
                 <div [ngClass]="{'active':activeIndex === i}"></div>
             </div>
-            <div class="number"><span class="tw-uppercase">Step</span> {{i+1}}</div>
-            <div class="tw-font-semibold tw-w-max">{{step.stepTitle}}</div>
+            <div class="number"><span class="tw-uppercase">{{step.stepTitle}}</span></div>
             <div class="tw-w-max" [ngClass]="{'active':activeIndex === i}">
                 {{activeIndex === i ? 'In Progress' :
                 activeIndex < i ? 'Pending' : 'Completed' }} </div>

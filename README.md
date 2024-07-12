@@ -24,7 +24,7 @@ than using `NgTemplateOutlet` directive "declarative"...
 *  Using Angular material stepper I need to make a customizable stepper header in some cases so I want to conditionally show and hide the default header and this an easy part using
     some CSS so I created a class called `hide-stepper-header` 
     ```javascript CSS
-            .hide-stepper-header {
+        .hide-stepper-header {
             .mat-horizontal-stepper-header-container {
                 display: none;
             }
@@ -62,5 +62,74 @@ than using `NgTemplateOutlet` directive "declarative"...
     ```
     this class would be triggered dynamically depends on if there is a custom header provided to the stepper or not.
 
-* 
+* in the above code snippet I created a stepper component which takes a model signal that works like an Input and Output to listen to the active step changes.
+
+* and this is the parent component re-using the stepper component in customizable view 
+
+```javascript TS
+    export class EmbeddedViewsComponent {
+        steps = [
+            {stepTitle:'Step title 1', isActive:false},
+            {stepTitle:'Step title 2', isActive:true}
+        ];
+        activeIndex = 0;
+    }   
+```
+```javascript HTML
+    <app-stepper [stepperHeader]="stepperHeaderRef" [(selectedIndex)]="activeIndex"></app-stepper>
+
+    <ng-template #stepperHeaderRef>
+        <ng-container *ngFor="let step of steps;let i = index;let last = last">
+            <div class="step"
+                [ngClass]="{'active':activeIndex === i, 'completed':activeIndex > i, 'pending':activeIndex < i}">
+                <div class="bullet">
+                    <mat-icon *ngIf="activeIndex > i">check</mat-icon>
+                    <div [ngClass]="{'active':activeIndex === i}"></div>
+                </div>
+                <div class="number"><span class="tw-uppercase">{{step.stepTitle}}</span></div>
+                <div class="tw-w-max" [ngClass]="{'active':activeIndex === i}">
+                    {{activeIndex === i ? 'In Progress' :
+                    activeIndex < i ? 'Pending' : 'Completed' }} </div>
+                </div>
+                <div *ngIf="!last" class="step-link"></div>
+        </ng-container>
+    </ng-template>
+```
+```javascript css
+    .step-link {
+        @apply tw-h-[1px] tw-bg-neutral-300 tw-w-full tw-mt-4;
+    }
+
+    .step {
+        .bullet {
+            @apply tw-mb-4 tw-flex tw-items-center tw-justify-center tw-bg-green-100 tw-w-[32px] tw-h-[32px] tw-rounded-full;
+
+            mat-icon {
+                @apply tw-text-white;
+            }
+
+            .active {
+                @apply tw-bg-green-400 tw-w-[12px] tw-h-[12px] tw-rounded-full;
+            }
+        }
+
+        .number {
+            @apply tw-text-neutral-600 tw-tracking-widest tw-w-32;
+        }
+
+        &>.active {
+            @apply tw-text-green-500;
+        }
+
+        &.pending {
+            @apply tw-opacity-60;
+        }
+
+        &.completed {
+            .bullet {
+                @apply tw-bg-green-600;
+            }
+        }
+    }
+```
     
